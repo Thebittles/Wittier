@@ -26,7 +26,7 @@ export default function Home() {
     <Layout>
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
       <h1 className="text-4xl font-bold mb-8">WebAI Text Generator</h1>
-      <form onSubmit={handleSubmit} className="flex gap-4">
+      <form onSubmit={handleSubmit} className="flex gap-4 search-form">
         <input
           className="border border-gray-300 p-2 rounded"
           type="text"
