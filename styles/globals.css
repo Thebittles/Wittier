@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f4f3;
-  background-image: url("../images/austin.png");
+  background-image: url("/images/austin.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,6 +63,17 @@ nav.navbar {
   color: #93c5fd;
 }
 
+.navbar-two {
+  width: 100%;
+  height: 80px;
+  background-color: #f5f4f3;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.navbar-two img {
+  padding: 5px;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
@@ -76,7 +87,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: white;
-  margin: 10%;
+  margin: 15% 10% 10% 10%;
   padding: 25px;
   box-shadow: 1px 1px 10px #00000050;
 }
