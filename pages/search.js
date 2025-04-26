@@ -18,9 +18,9 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 container">
       <h1 className="text-4xl font-bold mb-8">Google Search with SerpAPI</h1>
-      <form onSubmit={handleSearch} className="flex gap-4">
+      <form onSubmit={handleSearch} className="flex gap-4 search-form">
         <input
           className="border border-gray-300 p-2 rounded"
           type="text"

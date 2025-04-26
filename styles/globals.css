@@ -12,9 +12,9 @@ body {
   padding: 0;
   background-color: #f5f4f3;
   background-image: url("/images/austin.png");
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 
 
