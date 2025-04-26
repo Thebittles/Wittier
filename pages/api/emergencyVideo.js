@@ -16,10 +16,7 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    console.log("Hello", data);
-
-    const videos =
-      data.video_results?.map((video) => ({
+      const videos = data.video_results?.map(video => ({
         id: video.position, // or video.title if you prefer
         title: video.title,
         description: video.description,

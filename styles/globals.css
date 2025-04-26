@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -5,4 +7,146 @@
 
 body {
   @apply p-4;
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f4f3;
+  background-image: url("/images/austin.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+
+/* NAV BAR */
+/* Base Navbar */
+nav.navbar {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+/* Hamburger */
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Desktop links inside nav */
+.desktop-links {
+  display: none;
+}
+
+/* Mobile links below navbar */
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+.mobile-links a {
+  color: white;
+  text-decoration: none;
+  font-size: .85rem;
+}
+
+.mobile-links a:hover {
+  color: #93c5fd;
+}
+
+.navbar-two {
+  width: 100%;
+  height: 80px;
+  background-color: #f5f4f3;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.navbar-two img {
+  padding: 5px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+}
+
+
+/* MAIN */
+main, .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 15% 10% 10% 10%;
+  padding: 25px;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.buttons button, .search-form button {
+  margin: 5px 10px;
+  padding: 10px 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px #00000025;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form input {
+  height: 25px;
+  width: 65%;
+  padding: 7px;
+  background-color: #f5f4f3;
+  border: none;
+  border-radius: 10px;
+}
+
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .desktop-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .desktop-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.125rem;
+  }
+
+  .desktop-links a:hover {
+    color: #93c5fd;
+  }
+
+  .mobile-links {
+    display: none;
+  }
 }
