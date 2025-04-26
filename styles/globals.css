@@ -108,6 +108,13 @@ main, .container {
   box-shadow: 1px 1px 7px #00000025;
 }
 
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-form input {
   height: 25px;
   width: 65%;
