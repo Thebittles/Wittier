@@ -34,10 +34,10 @@ export default function EmergencyVideosPage() {
   }, [selectedTag]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
       
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 buttons">
         {tags.map(tag => (
           <button
             key={tag}
@@ -52,7 +52,7 @@ export default function EmergencyVideosPage() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 videos-container">
           {videos.map(video => (
             <div key={video.id} className="border rounded p-4">
               <iframe
