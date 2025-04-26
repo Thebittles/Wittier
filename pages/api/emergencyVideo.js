@@ -15,7 +15,6 @@ export default async function handler(req, res) {
       const response = await fetch(serpApiUrl);
       
       const data = await response.json();
-  
 
       const videos = data.video_results?.map(video => ({
         id: video.position, // or video.title if you prefer

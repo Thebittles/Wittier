@@ -1,4 +1,5 @@
 'use client';
+import Layout from '../components/Layout';
 import SendTextForm from '../components/SendTextForm';
 
 import { useState, useEffect } from 'react';
@@ -39,6 +40,7 @@ export default function DomesticViolenceResourcesPage() {
   }, [selectedTag]);
 
   return (
+    <Layout>
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Domestic Violence Resources</h1>
         <SendTextForm messageToSend={sheltersInfo} />
@@ -70,5 +72,6 @@ export default function DomesticViolenceResourcesPage() {
         </div>
       )}
     </div>
+    </Layout>
   );
 }

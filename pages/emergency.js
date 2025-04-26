@@ -1,4 +1,6 @@
 'use client';
+import Layout from '../components/Layout';
+
 
 import { useState, useEffect } from 'react';
 
@@ -34,6 +36,7 @@ export default function EmergencyVideosPage() {
   }, [selectedTag]);
 
   return (
+    <Layout>
     <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
       
@@ -62,12 +65,13 @@ export default function EmergencyVideosPage() {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                loading="lazy" // ⚡ lazy-load optimization
+                loading="lazy" 
               ></iframe>
             </div>
           ))}
         </div>
       )}
     </div>
+    </Layout>
   );
 }
