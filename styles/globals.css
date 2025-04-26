@@ -10,6 +10,11 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f5f4f3;
+  background-image: url("../images/austin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -22,6 +27,7 @@ nav.navbar {
   align-items: center;
   justify-content: space-between;
   color: white;
+  box-shadow: 1px 1px 10px #00000010;
 }
 
 /* Hamburger */
@@ -55,6 +61,24 @@ nav.navbar {
 
 .mobile-links a:hover {
   color: #93c5fd;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+}
+
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 10%;
+  padding: 25px;
+  box-shadow: 1px 1px 10px #00000010;
 }
 
 /* Desktop styles */
