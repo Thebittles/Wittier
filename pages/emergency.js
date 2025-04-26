@@ -2,6 +2,7 @@
 import Layout from '../components/Layout';
 
 
+import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
 
 const tags = ['CPR', 'Heimlich', 'First Aid', 'Choking', 'Treating bullet wounds'];

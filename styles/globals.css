@@ -12,9 +12,9 @@ body {
   padding: 0;
   background-color: #f5f4f3;
   background-image: url("/images/austin.png");
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 
 
@@ -99,13 +99,29 @@ main, .container {
   justify-content: space-between;
 }
 
-.buttons button {
+.buttons button, .search-form button {
   margin: 5px 10px;
   padding: 10px 15px;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 1px 1px 7px #00000025;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form input {
+  height: 25px;
+  width: 65%;
+  padding: 7px;
+  background-color: #f5f4f3;
+  border: none;
+  border-radius: 10px;
 }
 
 
