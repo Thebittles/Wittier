@@ -10,13 +10,12 @@ export default async function handler(req, res) {
     try {
       const searchQuery = encodeURIComponent(tag);
       const apiKey = process.env.SERP_API_KEY; 
-      
+
       const serpApiUrl = `https://serpapi.com/search.json?engine=youtube&search_query=${searchQuery}&api_key=${apiKey}`;
       const response = await fetch(serpApiUrl);
       
       const data = await response.json();
   
-      console.log("Hello", data)
 
       const videos = data.video_results?.map(video => ({
         id: video.position, // or video.title if you prefer
