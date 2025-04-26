@@ -25,8 +25,8 @@ export default function Home() {
   return (
     <Layout>
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
-      <h1 className="text-4xl font-bold mb-8">WebAI Text Generator</h1>
-      <form onSubmit={handleSubmit} className="flex gap-4">
+      <h1 className="text-4xl font-bold mb-8">Search Austin Community Resources</h1>
+      <form onSubmit={handleSubmit} className="flex gap-4 search-form">
         <input
           className="border border-gray-300 p-2 rounded"
           type="text"
@@ -35,7 +35,7 @@ export default function Home() {
           placeholder="Ask me anything..."
         />
         <button className="bg-blue-500 text-white px-4 py-2 rounded" type="submit">
-          Submit
+          Search
         </button>
       </form>
       <div className="mt-8">
