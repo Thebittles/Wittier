@@ -1,6 +1,6 @@
 
 "use client";
-
+import Layout from '../components/Layout';
 import { useState, useEffect } from "react";
 
 const tags = [
@@ -33,10 +33,11 @@ export default function NewsPage() {
   }, [selectedTag]);
 
   return (
-    <div className="p-6">
+    <Layout>
+    <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Mental Health</h1>
 
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 search-form">
         {tags.map((tag) => (
           <button
             key={tag}
@@ -53,11 +54,11 @@ export default function NewsPage() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 news-container">
           {articles.slice(0, 6).map((article, idx) => (
             <div
               key={idx}
-              className="border p-4 rounded-xl shadow hover:shadow-lg transition"
+              className="border p-4 rounded-xl shadow hover:shadow-lg transition card article"
             >
               <div className="flex items-center gap-2 mb-2">
                 {article.favicon && (
@@ -93,5 +94,6 @@ export default function NewsPage() {
         </div>
       )}
     </div>
+    </Layout>
   );
 }
