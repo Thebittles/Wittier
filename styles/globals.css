@@ -97,6 +97,8 @@ main, .container {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 75%;
+  margin: auto;
 }
 
 .buttons button, .search-form button {
