@@ -59,27 +59,27 @@ export default function Home() {
         <ResourceCard
           // title="Weather Conditions/Emergency Resources"
           description="Weather Advisory."
-          link="https://example.com/rent"
+          link="/weather"
           image="WeatherConditions_EmergencyResources.jpg"
         />
         <ResourceCard
           // title="Transportation/Traffic/Road Resources and Bulletin Notifications"
           description="CapMetro Information,Event Traffic Closures."
-          link="https://example.com/childcare"
+          link="/traffic"
           image="/Transportation.jpg"
         />
 
         <ResourceCard
           // title="Parental Assistance/Programs"
           description="Child care, Holiday and Summer Programs."
-          link="https://example.com/insurance"
+          link="/family-programs"
           image="ParentalAssistance,Programs.jpg"
         />
 
         <ResourceCard
           // title="Senior Citizen and Disabled Citizen Resources"
           description="Elder abuse hotline, Local disablity."
-          link="https://example.com/childcare"
+          link="/senior-disabled-citizen-resources"
           // image="Transportation_Traffic_Roa BulletinNotifications.jpg"
           image="CitizenandDisabledCitizenResources.jpg"
         />
