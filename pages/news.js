@@ -49,18 +49,18 @@ export default function NewsPage() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 news-container">
             {articles.slice(0, 6).map((article, idx) => (
               <div
                 key={idx}
-                className="border p-4 rounded-xl shadow hover:shadow-lg transition"
+                className="border p-4 rounded-xl shadow hover:shadow-lg transition card article"
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 ">
                   {article.favicon && (
                     <img
                       src={article.favicon}
                       alt="favicon"
-                      className="w-6 h-6 object-contain"
+                      className="w-6 h-6 object-contain favicon"
                     />
                   )}
                   <a
