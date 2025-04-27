@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* UNIVERSAL STYLES */
 body {
   @apply p-4;
   font-family: 'Merriweather Sans', sans-serif;
@@ -18,8 +19,21 @@ body {
 }
 
 
+a {
+  color: #d74e3d;
+  text-decoration: none;
+  transition: color 1s;
+}
+
+a:hover {
+  color: #0059c1;
+}
+
+
+
+
+
 /* NAV BAR */
-/* Base Navbar */
 nav.navbar {
   background-color: #1e1e1e;
   padding: 1rem;
@@ -68,11 +82,22 @@ nav.navbar {
   height: 80px;
   background-color: #f5f4f3;
   box-shadow: 1px 1px 10px #00000050;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-two img {
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
 }
+
+.atx-link {
+  color: #1e1e1e;
+  padding-right: 25px;
+  font-size: 1.2rem;
+}
+
 
 /* FOOTER */
 footer {
@@ -97,6 +122,8 @@ main, .container {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 75%;
+  margin: auto;
 }
 
 .buttons button, .search-form button {
@@ -125,6 +152,47 @@ main, .container {
 }
 
 
+.videos-container {
+  display: flex;
+  flex: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.videos-container .video iframe {
+  margin: 25px;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.favicon {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.article {
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.article a {
+  font-size: 1.25rem;
+}
+
+
+
 /* Desktop styles */
 @media (min-width: 768px) {
   .hamburger {
@@ -148,6 +216,10 @@ main, .container {
 
   .mobile-links {
     display: none;
+  }
+
+  .videos-container {
+    justify-content: space-evenly;
   }
 }
 /* ResourceCard.css */

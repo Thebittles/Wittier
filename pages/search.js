@@ -34,9 +34,9 @@ export default function SearchPage() {
             Search
           </button>
         </form>
-        <div className="mt-8 w-full max-w-2xl">
+        <div className="mt-8 w-full max-w-2xl news-container">
           {loading ? <p>Searching...</p> : results.map((result, idx) => (
-            <div key={idx} className="border-b py-2">
+            <div key={idx} className="border-b py-2 card article">
               <a className="text-blue-500 font-semibold" href={result.link} target="_blank" rel="noopener noreferrer">
                 {result.title}
               </a>
