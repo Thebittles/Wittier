@@ -39,7 +39,7 @@ export default function NewsPage() {
 
   return (
     <Layout>
-      <div className="p-6">
+      <div className="p-6 container">
         <h1 className="text-2xl font-bold mb-4">Live News</h1>
         <SendTextForm messageToSend={smsMessage} />
         <div className="flex gap-2 mb-6 search-form">

@@ -1,11 +1,16 @@
+
 "use client";
 import Layout from '../components/Layout';
 import { useState, useEffect } from "react";
 
-const tags = ["Weather"];
+const tags = [
+  "Mental Health","Self-Care","Therapy","Mindfulness","Anxiety Support",
+  "Depression Help","Emotional Support","Stress Management","Community Support",
+  "Trauma Recovery","Coping Strategies",
+];
 
 export default function NewsPage() {
-  const [selectedTag, setSelectedTag] = useState("Weather");
+  const [selectedTag, setSelectedTag] = useState("Mental Health");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -30,7 +35,7 @@ export default function NewsPage() {
   return (
     <Layout>
     <div className="p-6 container">
-      <h1 className="text-2xl font-bold mb-4">Weather News</h1>
+      <h1 className="text-2xl font-bold mb-4">Mental Health</h1>
 
       <div className="flex gap-2 mb-6 search-form">
         {tags.map((tag) => (

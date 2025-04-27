@@ -19,6 +19,10 @@ export default function Nav() {
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Safety and Support Services</Link>
+          <Link href="/family-programs">Family</Link>
+          <Link href="/mentalhealth">Mental Health</Link>
+          <Link href="/senior-disabled-citizen-resources">Senior and Disabled Services</Link>
+          <Link href="/weather">Weather</Link>
           <Link href="/search">Search</Link>
         </div>
       </nav>
@@ -29,6 +33,10 @@ export default function Nav() {
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Safety and Support Services</Link>
+          <Link href="/family-programs">Family</Link>
+          <Link href="/mentalhealth">Mental Health</Link>
+          <Link href="/senior-disabled-citizens-resources">Senior and Disabled Services</Link>
+          <Link href="/weather">Weather</Link>
           <Link href="/search">Search</Link>
         </div>
       )}
@@ -40,6 +48,11 @@ export default function Nav() {
           width={70}
           height={70}
         />
+
+        <Link 
+          href="https://austintexas.gov"
+          className="atx-link"
+        >austintexas.gov</Link>
       </div>
     </>
   );

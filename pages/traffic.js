@@ -1,11 +1,20 @@
 "use client";
-import Layout from '../components/Layout';
+
 import { useState, useEffect } from "react";
 
-const tags = ["Weather"];
+const tags = [
+  "CapMetro",
+  "Public Transportation",
+  "Bus Routes",
+  "Park and Ride",
+  "Transit Safety",
+  "Traffic Updates",
+  "Street Closures",
+  "Detours",
+];
 
 export default function NewsPage() {
-  const [selectedTag, setSelectedTag] = useState("Weather");
+  const [selectedTag, setSelectedTag] = useState("CapMetro");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -28,11 +37,12 @@ export default function NewsPage() {
   }, [selectedTag]);
 
   return (
-    <Layout>
-    <div className="p-6 container">
-      <h1 className="text-2xl font-bold mb-4">Weather News</h1>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">
+        CapMetro Information,Event Traffic Closures
+      </h1>
 
-      <div className="flex gap-2 mb-6 search-form">
+      <div className="flex gap-2 mb-6">
         {tags.map((tag) => (
           <button
             key={tag}
@@ -49,11 +59,11 @@ export default function NewsPage() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 news-container">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {articles.slice(0, 6).map((article, idx) => (
             <div
               key={idx}
-              className="border p-4 rounded-xl shadow hover:shadow-lg transition card article"
+              className="border p-4 rounded-xl shadow hover:shadow-lg transition"
             >
               <div className="flex items-center gap-2 mb-2">
                 {article.favicon && (
@@ -89,6 +99,5 @@ export default function NewsPage() {
         </div>
       )}
     </div>
-    </Layout>
   );
 }
