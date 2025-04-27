@@ -11,6 +11,7 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   margin: 0;
   padding: 0;
+  width: 100%;
   background-color: #f5f4f3;
   background-image: url("/images/austin.png");
   background-position: top center;
