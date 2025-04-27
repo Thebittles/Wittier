@@ -1,8 +1,11 @@
 
 import Layout from '../components/Layout';
-
+import { useState } from 'react';
 import ResourceCard from '../components/ResourceCard';
 export default function Home() {
+  const [prompt, setPrompt] = useState('');
+  const [output, setOutput] = useState('');  
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
