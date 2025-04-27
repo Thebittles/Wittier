@@ -1,11 +1,16 @@
 
 import Layout from '../components/Layout';
-import { useState } from 'react';
+import LocationMap from '../components/LocationMap';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  // Search Section
   const [prompt, setPrompt] = useState('');
   const [output, setOutput] = useState('');
   const [loading, setLoading] = useState(false);
+
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +45,9 @@ export default function Home() {
       </form>
       <div className="mt-8">
         {loading ? <p>Thinking...</p> : <p>{output}</p>}
+      </div>
+      <div className="border border-s-lime-500 p2 rounded">
+        <LocationMap />
       </div>
     </div>
     </Layout>
