@@ -59,9 +59,9 @@ export default function DomesticViolenceResourcesPage() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 news-container">
           {resources.map((resource, index) => (
-            <div key={index} className="border rounded p-4">
+            <div key={index} className="border rounded p-4 card article">
               <a href={resource.link} target="_blank" rel="noopener noreferrer">
                 <h2 className="text-lg font-semibold text-purple-700 hover:underline">{resource.title}</h2>
               </a>
