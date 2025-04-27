@@ -328,6 +328,28 @@ footer {
 }
 
 
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.logo img {
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  margin-right: 15px;
+}
+
+
+
+
 /* Desktop styles */
 @media (min-width: 768px) {
   .hamburger {
