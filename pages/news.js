@@ -43,7 +43,9 @@ export default function NewsPage() {
     <Layout>
       <div className="p-6 container">
         <h1 className="text-2xl font-bold mb-4">Live News</h1>
-        <SendTextForm messageToSend={smsMessage} />
+        <div className="holder">
+          <SendTextForm messageToSend={smsMessage} />
+        </div>
         <div className="flex gap-2 mb-6 search-form">
           {tags.map((tag) => (
             <button

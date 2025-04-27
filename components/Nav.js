@@ -16,10 +16,10 @@ export default function Nav() {
 
         <div className="desktop-links">
           <Link href="/">Home</Link>
-          <Link href="/news">News</Link>
+          <Link href="/news">Live News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Safety and Support Services</Link>
-          <Link href="/family-programs">Family</Link>
+          <Link href="/family-programs">Family Programs</Link>
           <Link href="/mentalhealth">Mental Health</Link>
           <Link href="/senior-disabled-citizen-resources">Senior and Disabled Services</Link>
           <Link href="/traffic">Traffic</Link>
@@ -31,10 +31,10 @@ export default function Nav() {
       {menuOpen && (
         <div className="mobile-links">
           <Link href="/">Home</Link>
-          <Link href="/news">News</Link>
+          <Link href="/news">Live News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Safety and Support Services</Link>
-          <Link href="/family-programs">Family</Link>
+          <Link href="/family-programs">Family Programs</Link>
           <Link href="/mentalhealth">Mental Health</Link>
           <Link href="/senior-disabled-citizens-resources">Senior and Disabled Services</Link>
           <Link href="/traffic">Traffic</Link>
