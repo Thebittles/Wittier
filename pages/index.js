@@ -87,9 +87,9 @@ export default function Home() {
         </div>
       </div>
       <div className="callout">
-        <div className="w-full">
+        <div className="w-full inset">
           <h1 className="text-4xl font-bold text-center mb-8">See Resources Near You!</h1>
-          <div className="w-full" style={{ height: "600px" }}>
+          <div className="w-full map-container" style={{ height: "600px" }}>
             <Map />
           </div>
         </div>

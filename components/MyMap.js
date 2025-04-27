@@ -100,7 +100,7 @@ export default function MyMap() {
   return (
     <div>
       {/* Category Filter */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-4 filter">
         <select
           className="border border-gray-300 p-2 rounded"
           value={selectedCategory}
