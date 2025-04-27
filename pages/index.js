@@ -32,8 +32,8 @@ export default function Home() {
             // title="Mental Health Resources"
             description="Free and Low-cost Mental Health Programs"
             // description1="first aid, heimlich, CPR, bullet wound Treatment"
-            link="mentalhealth"
-            image="MentalHealthResources.jpg"
+            link="/mentalhealth"
+            image="MentalHealth.jpg"
           />
           <ResourceCard
             // title="Domestic Violence Help"
@@ -63,14 +63,14 @@ export default function Home() {
             // title="Transportation/Traffic/Road Resources and Bulletin Notifications"
             description="CapMetro Information,Event Traffic Closures."
             link="/traffic"
-            image="/Transportation.jpg"
+            image="/Trafficresources.jpg"
           />
 
           <ResourceCard
             // title="Parental Assistance/Programs"
             description="Child care, Holiday and Summer Programs."
             link="/family-programs"
-            image="ParentalAssistance,Programs.jpg"
+            image="ParentalAssistance.jpg"
           />
 
           <ResourceCard
