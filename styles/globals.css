@@ -42,6 +42,12 @@ nav.navbar {
   justify-content: space-between;
   color: white;
   box-shadow: 1px 1px 10px #00000050;
+  height: auto;
+}
+
+
+.navbar h3 {
+  padding-left: 50px;
 }
 
 /* Hamburger */
