@@ -50,6 +50,7 @@ nav.navbar {
   padding-left: 50px;
 }
 
+
 /* Hamburger */
 .hamburger {
   background: none;
@@ -340,7 +341,7 @@ footer {
   .desktop-links a {
     color: white;
     text-decoration: none;
-    font-size: 1.125rem;
+    font-size: .85rem;
   }
 
   .desktop-links a:hover {
