@@ -125,6 +125,22 @@ main, .container {
 }
 
 
+.videos-container {
+  display: flex;
+  flex: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.videos-container .video iframe {
+  margin: 25px;
+  box-shadow: 1px 1px 10px #00000050;
+}
+
+
+
 /* Desktop styles */
 @media (min-width: 768px) {
   .hamburger {
@@ -148,6 +164,10 @@ main, .container {
 
   .mobile-links {
     display: none;
+  }
+
+  .videos-container {
+    justify-content: space-evenly;
   }
 }
 /* ResourceCard.css */

@@ -36,7 +36,7 @@ export default function EmergencyVideosPage() {
 
   return (
     <Layout>
-    <div className="p-6 container">
+    <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
       
       <div className="flex gap-2 mb-6 buttons">
@@ -56,7 +56,7 @@ export default function EmergencyVideosPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 videos-container">
           {videos.map(video => (
-            <div key={video.id} className="border rounded p-4">
+            <div key={video.id} className="border rounded p-4 video">
               <iframe
                 src={`https://www.youtube.com/embed/${extractVideoId(video.link)}`}
                 title={video.title}
