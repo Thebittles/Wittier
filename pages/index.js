@@ -36,7 +36,7 @@ export default function Home() {
         // title="Mental Health Resources"
           description="Free and Low-cost Mental Health Programs"
           // description1="first aid, heimlich, CPR, bullet wound Treatment"
-        link="https://example.com/rent"
+        link="/mentalhealth"
         image="MentalHealthResources.jpg"
         />
           <ResourceCard
