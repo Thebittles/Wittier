@@ -5,12 +5,62 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
+import L from 'leaflet';
+
 
 export default function MyMap() {
   const [resources, setResources] = useState([]);
   const [filteredResources, setFilteredResources] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [categories, setCategories] = useState([]);
+
+
+  const healthIcon = new L.Icon({
+    iconUrl: '/icons/green.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const firestationIcon = new L.Icon({
+    iconUrl: '/icons/red.png', 
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const recreationIcon = new L.Icon({
+    iconUrl: '/icons/yellow.png', 
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const policeIcon = new L.Icon({
+    iconUrl: '/icons/black.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const getMarkerIconByType = (type) => {
+    switch (type) {
+      case 'Health Facility':
+        return healthIcon;
+      case 'Firestation':
+        return firestationIcon;
+      case 'Recreation Center':
+        return recreationIcon;
+      case 'Police Station':
+        return policeIcon;
+      default:
+        return healthIcon; // fallback
+    }
+  };
 
   useEffect(() => {
     async function fetchResources() {
@@ -70,7 +120,11 @@ export default function MyMap() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {filteredResources.map((resource) => (
-          <Marker key={resource.id} position={[resource.lat, resource.lng]}>
+          <Marker
+            key={resource.id}
+            position={[resource.lat, resource.lng]}
+            icon={getMarkerIconByType(resource.type)}
+          >
             <Popup>
               <strong>{resource.name}</strong><br />
               Type: {resource.type}

@@ -13,8 +13,6 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    console.log("Hello", data);
-
     // NEW: map over organic_results and include thumbnail if available
     const articles =
       data.organic_results?.map((result) => ({
