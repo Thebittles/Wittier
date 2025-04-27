@@ -34,7 +34,7 @@ export default function NewsPage() {
   return (
     <Layout>
     <div className="p-6 container">
-      <h1 className="text-2xl font-bold mb-4">Live News</h1>
+      <h1 className="text-2xl font-bold mb-4">Senior and Disabled Citizen Resources</h1>
 
       <div className="flex gap-2 mb-6 search-form">
         {tags.map((tag) => (
