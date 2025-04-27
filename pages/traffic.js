@@ -60,7 +60,8 @@ export default function NewsPage() {
       <div className="p-6 container">
         {/* Page Title */}
         <h1 className="text-2xl font-bold mb-6">
-          CapMetro Information & Event Traffic Closures
+        Traffic: 
+          CapMetro Information & Closures
         </h1>
         <SendTextForm messageToSend={smsMessage} />
 

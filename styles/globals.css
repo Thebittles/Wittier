@@ -16,6 +16,7 @@ body {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: auto;
+  overflow-x: hidden;
 }
 
 
@@ -43,6 +44,7 @@ nav.navbar {
   color: white;
   box-shadow: 1px 1px 10px #00000050;
   height: auto;
+  width: 100vw;
 }
 
 
@@ -58,6 +60,7 @@ nav.navbar {
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  padding-right: 25px;
 }
 
 /* Desktop links inside nav */
@@ -385,6 +388,7 @@ footer {
     color: white;
     text-decoration: none;
     font-size: .85rem;
+    padding-right: 25px;
   }
 
   .desktop-links a:hover {
