@@ -13,33 +13,60 @@ export default function TrafficMap() {
   const [selectedIssue, setSelectedIssue] = useState('All');
   const [issues, setIssues] = useState([]);
 
-  // 🛠️ Map issue types to Tailwind background color classes
-  const getMarkerColor = (issue) => {
-    if (!issue) return 'bg-blue-500'; // Default blue
-    
-    issue = issue.toLowerCase();
+  // Create marker icons
+  const blackIcon = new L.Icon({
+    iconUrl: '/icons/black.png',
+    shadowUrl: '/icons/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
 
-    if (issue.includes('crash') || issue.includes('collision')) {
-      return 'bg-red-500';
-    } else if (issue.includes('hazard') || issue.includes('debris')) {
-      return 'bg-orange-500';
-    } else if (issue.includes('stalled')) {
-      return 'bg-yellow-400';
-    } else if (issue.includes('livestock')) {
-      return 'bg-green-500';
+  const redIcon = new L.Icon({
+    iconUrl: '/icons/red.png',
+    shadowUrl: '/icons/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const yellowIcon = new L.Icon({
+    iconUrl: '/icons/yellow.png',
+    shadowUrl: '/icons/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  const greenIcon = new L.Icon({
+    iconUrl: '/icons/green.png',
+    shadowUrl: '/icons/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  // Determine which icon to use based on issue
+  const getIconByIssue = (issue) => {
+    if (!issue) return blackIcon;
+
+    const lower = issue.toLowerCase();
+
+    if (lower.includes('crash') || lower.includes('collision')) {
+      return redIcon;
+    } else if (lower.includes('hazard') || lower.includes('debris')) {
+      return yellowIcon;
+    } else if (lower.includes('stalled')) {
+      return blackIcon;
+    } else if (lower.includes('livestock')) {
+      return greenIcon;
     } else {
-      return 'bg-blue-500';
+      return blackIcon; // default
     }
-  };
-
-  // 🛠️ Create a DivIcon (circle marker with dynamic color)
-  const createColoredDivIcon = (colorClass) => {
-    return L.divIcon({
-      className: '',
-      html: `<div class="w-4 h-4 rounded-full ${colorClass} border-2 border-white"></div>`,
-      iconSize: [16, 16],
-      popupAnchor: [0, -8],
-    });
   };
 
   useEffect(() => {
@@ -98,19 +125,32 @@ export default function TrafficMap() {
           attribution='&copy; OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {filteredReports.map((report) => (
-          <Marker
-            key={report.traffic_report_id}
-            position={[parseFloat(report.latitude), parseFloat(report.longitude)]}
-            icon={createColoredDivIcon(getMarkerColor(report.issue_reported))}
-          >
-            <Popup>
-              <strong>{report.issue_reported}</strong><br />
-              Address: {report.address}<br />
-              Agency: {report.agency?.trim()}
-            </Popup>
-          </Marker>
-        ))}
+        {filteredReports.map((report) => {
+          const lat = report.latitude ? parseFloat(report.latitude) : report.location?.coordinates?.[1];
+          const lng = report.longitude ? parseFloat(report.longitude) : report.location?.coordinates?.[0];
+
+          if (isNaN(lat) || isNaN(lng)) {
+            return null;
+          }
+
+          return (
+            <Marker
+              key={report.traffic_report_id}
+              position={[lat, lng]}
+              icon={getIconByIssue(report.issue_reported)}
+            >
+              <Popup>
+                <div className="text-sm">
+                  <strong>Issue:</strong> {report.issue_reported}<br />
+                  <strong>Address:</strong> {report.address}<br />
+                  <strong>Agency:</strong> {report.agency?.trim() || 'N/A'}<br />
+                  <strong>Status:</strong> {report.traffic_report_status || 'Unknown'}<br />
+                  <strong>Reported:</strong> {new Date(report.published_date).toLocaleString() || 'Unknown'}
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
     </div>
   );
