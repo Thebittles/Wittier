@@ -1,7 +1,8 @@
 
 import Layout from '../components/Layout';
-import LocationMap from '../components/LocationMap';
-import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+
+import { useState, useEffect, useMemo} from 'react';
 
 export default function Home() {
   // Search Section
@@ -9,6 +10,11 @@ export default function Home() {
   const [output, setOutput] = useState('');
   const [loading, setLoading] = useState(false);
 
+
+  const Map = useMemo(() => dynamic(() => import('../components/MyMap'), {
+    loading: () => <p>Loading map...</p>,
+    ssr: false
+  }), []);
 
 
 
@@ -47,7 +53,7 @@ export default function Home() {
         {loading ? <p>Thinking...</p> : <p>{output}</p>}
       </div>
       <div className="border border-s-lime-500 p2 rounded">
-        <LocationMap />
+        <Map/>
       </div>
     </div>
     </Layout>
