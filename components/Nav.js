@@ -16,6 +16,7 @@ export default function Nav() {
 
         <div className="desktop-links">
           <Link href="/">Home</Link>
+          <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Domestic Violence</Link>
           <Link href="/search">Search</Link>
@@ -25,6 +26,7 @@ export default function Nav() {
       {menuOpen && (
         <div className="mobile-links">
           <Link href="/">Home</Link>
+          <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
           <Link href="/domestic-violence">Domestic Violence</Link>
           <Link href="/search">Search</Link>
