@@ -44,12 +44,15 @@ export default function Nav() {
       )}
 
       <div className="navbar-two">
-        <Image
-          src="/images/OOI_Logo_color.png"
-          alt="Logo"
-          width={70}
-          height={70}
-        />
+        <Link href="/">
+          <Image
+            src="/images/OOI_Logo_color.png"
+            alt="Logo"
+            width={70}
+            height={70}
+          />
+        </Link>
+
 
         <Link 
           href="https://austintexas.gov"
