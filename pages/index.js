@@ -9,18 +9,12 @@ export default function Home() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("../components/MyMap"), {
-        loading: () => <p>Loading map...</p>,
-        ssr: false,
-      }),
-    []
-  );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
+  const Map = useMemo(() => dynamic(() => import('../components/MyMap'), {
+    loading: () => <p>Loading map...</p>,
+    ssr: false
+  }), []);
+
 
   return (
     <Layout>
