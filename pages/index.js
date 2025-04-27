@@ -1,22 +1,22 @@
-
-import Layout from '../components/Layout';
-import dynamic from 'next/dynamic';
-import { useState, useEffect, useMemo } from 'react';
-import ResourceCard from '../components/ResourceCard';
+import Layout from "../components/Layout";
+import dynamic from "next/dynamic";
+import { useState, useEffect, useMemo } from "react";
+import ResourceCard from "../components/ResourceCard";
 
 export default function Home() {
   // Search Section
-  const [prompt, setPrompt] = useState('');
-  const [output, setOutput] = useState('');
+  const [prompt, setPrompt] = useState("");
+  const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
-
-  const Map = useMemo(() => dynamic(() => import('../components/MyMap'), {
-    loading: () => <p>Loading map...</p>,
-    ssr: false
-  }), []);
-
-
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../components/MyMap"), {
+        loading: () => <p>Loading map...</p>,
+        ssr: false,
+      }),
+    []
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +25,9 @@ export default function Home() {
   return (
     <Layout>
       <div className="min-h-screen flex flex-col items-center justify-center p-8">
-        <h1 className="text-4xl font-bold mb-8">Search Austin Community Resources</h1>
+        <h1 className="text-4xl font-bold mb-8">
+          Search Austin Community Resources
+        </h1>
         <form onSubmit={handleSubmit} className="flex gap-4 search-form">
           <input
             className="border border-gray-300 p-2 rounded"
@@ -34,7 +36,10 @@ export default function Home() {
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="Ask me anything..."
           />
-          <button className="bg-blue-500 text-white px-4 py-2 rounded" type="submit">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+            type="submit"
+          >
             Search
           </button>
         </form>
@@ -47,7 +52,7 @@ export default function Home() {
           // title="Mental Health Resources"
           description="Free and Low-cost Mental Health Programs"
           // description1="first aid, heimlich, CPR, bullet wound Treatment"
-          link="https://example.com/rent"
+          link="/mentalhealth"
           image="MentalHealthResources.jpg"
         />
         <ResourceCard
@@ -65,47 +70,45 @@ export default function Home() {
         <ResourceCard
           // title="Urgent and Important News"
           description="City News, Local Neighborhood News "
-          link="https://example.com/insurance"
+          link="/news"
           image="/Urgent.jpg"
         />
         <ResourceCard
           // title="Weather Conditions/Emergency Resources"
           description="Weather Advisory."
-          link="https://example.com/rent"
+          link="/weather"
           image="WeatherConditions_EmergencyResources.jpg"
         />
         <ResourceCard
           // title="Transportation/Traffic/Road Resources and Bulletin Notifications"
           description="CapMetro Information,Event Traffic Closures."
-          link="https://example.com/childcare"
+          link="/traffic"
           image="/Transportation.jpg"
         />
 
         <ResourceCard
           // title="Parental Assistance/Programs"
           description="Child care, Holiday and Summer Programs."
-          link="https://example.com/insurance"
+          link="family-programs"
           image="ParentalAssistance,Programs.jpg"
         />
 
         <ResourceCard
           // title="Senior Citizen and Disabled Citizen Resources"
           description="Elder abuse hotline, Local disablity."
-          link="https://example.com/childcare"
+          link="senior-disabled-citizen-resources"
           // image="Transportation_Traffic_Roa BulletinNotifications.jpg"
           image="CitizenandDisabledCitizenResources.jpg"
         />
       </div>
       <div className="w-full">
-        <h1 className="text-4xl font-bold text-center mb-8">See Resources Near You!</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">
+          See Resources Near You!
+        </h1>
         <div className="w-full" style={{ height: "600px" }}>
           <Map />
         </div>
       </div>
-
     </Layout>
   );
 }
-
-
-
