@@ -10,13 +10,16 @@ body {
   @apply p-4;
   font-family: 'Merriweather Sans', sans-serif;
   margin: 0;
-  padding: 0;
-  width: 100%;
   background-color: #f5f4f3;
   background-image: url("/images/austin.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
   overflow-x: hidden;
 }
 
@@ -46,7 +49,6 @@ nav.navbar {
   box-shadow: 1px 1px 10px #00000050;
   height: auto;
   width: 100%;
-  text-align: center;
 }
 
 
