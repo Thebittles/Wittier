@@ -10,6 +10,7 @@ export default function DomesticViolenceResourcesPage() {
   const [selectedTag, setSelectedTag] = useState('All');
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [smsMessage, setSmsMessage] = useState('');
 
   const sheltersInfo = `
   🏠 Austin Shelter Resources:
@@ -17,6 +18,7 @@ export default function DomesticViolenceResourcesPage() {
   - Salvation Army: (512) 476-1111
   - Caritas of Austin: (512) 479-4610
   `;
+
 
 
 
@@ -28,22 +30,29 @@ export default function DomesticViolenceResourcesPage() {
         const res = await fetch(`/api/domesticViolenceResources${tagQuery}`);
         const data = await res.json();
         setResources(data.resources);
+  
+        const smsText = data.resources.map((resource, index) => (
+          `• ${resource.title}: ${resource.displayed_link}`
+        )).join('\n');
+  
+        setSmsMessage(`🏠 Austin Resources:\n${smsText}`);
       } catch (error) {
         console.error('Failed to fetch resources:', error);
       } finally {
         setLoading(false);
       }
     }
-
-
+  
     fetchResources();
   }, [selectedTag]);
+
+
 
   return (
     <Layout>
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Domestic Violence Resources</h1>
-        <SendTextForm messageToSend={sheltersInfo} />
+      <SendTextForm messageToSend={smsMessage} />
       <div className="flex gap-2 mb-6 search-form">
         {tags.map(tag => (
           <button

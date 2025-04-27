@@ -26,18 +26,6 @@ export default function Home() {
     <Layout>
       <div className="min-h-screen flex flex-col items-center justify-center p-8">
         <h1 className="text-4xl font-bold mb-8">Search Austin Community Resources</h1>
-        <form onSubmit={handleSubmit} className="flex gap-4 search-form">
-          <input
-            className="border border-gray-300 p-2 rounded"
-            type="text"
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            placeholder="Ask me anything..."
-          />
-          <button className="bg-blue-500 text-white px-4 py-2 rounded" type="submit">
-            Search
-          </button>
-        </form>
         <div className="mt-8">
           {loading ? <p>Thinking...</p> : <p>{output}</p>}
         </div>
@@ -65,7 +53,7 @@ export default function Home() {
         <ResourceCard
           // title="Urgent and Important News"
           description="City News, Local Neighborhood News "
-          link="https://example.com/insurance"
+          link="/news"
           image="/Urgent.jpg"
         />
         <ResourceCard
