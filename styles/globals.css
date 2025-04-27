@@ -155,6 +155,7 @@ main, .container {
   width: 85%;
   margin: auto;
   margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 .favicon {
