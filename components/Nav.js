@@ -18,7 +18,7 @@ export default function Nav() {
           <Link href="/">Home</Link>
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
-          <Link href="/domestic-violence">Domestic Violence</Link>
+          <Link href="/domestic-violence">Safety and Support Services</Link>
           <Link href="/search">Search</Link>
         </div>
       </nav>
@@ -28,7 +28,7 @@ export default function Nav() {
           <Link href="/">Home</Link>
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
-          <Link href="/domestic-violence">Domestic Violence</Link>
+          <Link href="/domestic-violence">Safety and Support Services</Link>
           <Link href="/search">Search</Link>
         </div>
       )}

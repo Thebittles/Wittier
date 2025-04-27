@@ -15,13 +15,13 @@ export default async function handler(req, res) {
       
       const data = await response.json();
 
-      const videos = data.video_results?.map(video => ({
-        id: video.position, // or video.title if you prefer
+      const videos = (data.video_results?.map(video => ({
+        id: video.position,
         title: video.title,
         description: video.description,
         thumbnail: video.thumbnail,
         link: video.link,
-      })) || [];
+      })) || []).slice(0, 6);
 
     res.status(200).json({ videos });
   } catch (error) {

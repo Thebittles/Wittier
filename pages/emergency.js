@@ -1,14 +1,37 @@
 'use client';
 import Layout from '../components/Layout';
-
+import SendTextForm from '../components/SendTextForm';
 import { useState, useEffect } from 'react';
 
-const tags = ['CPR', 'Heimlich', 'First Aid', 'Choking', 'Treating bullet wounds'];
+const tags = [
+  'CPR', 
+  'Heimlich', 
+  'First Aid', 
+  'Treating bullet wounds',
+  'Choking', 
+  'Heart Attack Response', 
+  'Stroke Recognition', 
+  'Burn Treatment', 
+  'Severe Bleeding Control', 
+  'Fracture Stabilization', 
+  'Allergic Reaction Response', 
+  'Seizure First Aid', 
+  'Drowning Rescue', 
+  'Shock Treatment', 
+  'Basic Life Support (BLS)', 
+  'AED Usage', 
+  'Emergency Childbirth',
+  'Poisoning Response',
+  'Hypothermia Treatment',
+  'Heatstroke Response'
+];
 
 export default function EmergencyVideosPage() {
   const [selectedTag, setSelectedTag] = useState('CPR');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [smsMessage, setSmsMessage] = useState('');
+
 
   function extractVideoId(url) {
     const urlObj = new URL(url);
@@ -24,6 +47,13 @@ export default function EmergencyVideosPage() {
         const res = await fetch(`/api/emergencyVideo${tagQuery}`);
         const data = await res.json();
         setVideos(data.videos);
+    
+        // ✨ Build SMS text from videos
+        const smsText = data.videos.map(video => (
+          `• ${video.title}: ${video.link}`
+        )).join('\n');
+    
+        setSmsMessage(`🚑 Emergency Videos - ${selectedTag}:\n${smsText}`);
       } catch (error) {
         console.error('Failed to fetch videos:', error);
       } finally {
@@ -36,9 +66,12 @@ export default function EmergencyVideosPage() {
 
   return (
     <Layout>
-    <div className="p-6">
+    <div className="p-6 ">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
-      
+      <div>
+      <SendTextForm messageToSend={smsMessage} />
+      </div>
+
       <div className="flex gap-2 mb-6 buttons">
         {tags.map(tag => (
           <button
@@ -70,6 +103,7 @@ export default function EmergencyVideosPage() {
           ))}
         </div>
       )}
+
     </div>
     </Layout>
   );
