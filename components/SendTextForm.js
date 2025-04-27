@@ -34,7 +34,7 @@ export default function SendTextForm({ messageToSend }) {
   };
 
   return (
-    <form onSubmit={handleSend} className="flex flex-col gap-4 p-4 border rounded-lg shadow search-form">
+    <form onSubmit={handleSend} className="flex flex-col gap-4 p-4 border rounded-lg shadow search-form callout-button">
       <input
         type="text"
         placeholder="Enter your phone number"

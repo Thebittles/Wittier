@@ -68,7 +68,7 @@ export default function EmergencyVideosPage() {
     <Layout>
     <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
-      <div>
+      <div className="holder">
       <SendTextForm messageToSend={smsMessage} />
       </div>
 

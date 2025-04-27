@@ -181,13 +181,23 @@ footer {
 
 .search-form input {
   height: 25px;
-  width: 65%;
+  width: 100%;
   padding: 7px;
   background-color: #f5f4f3;
   border: none;
   border-radius: 10px;
 }
 
+.holder {
+  width: 50%;
+}
+
+.callout-button button {
+  background-color: #d74e3d;
+  color: white;
+  border: none;
+  margin-bottom: 30px;
+}
 
 .videos-container {
   display: flex;
