@@ -1,7 +1,7 @@
 "use client";
 import Layout from '../components/Layout';
 import SendTextForm from '../components/SendTextForm';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const tags = ["KXAN Austin", "KEYE", "The Austin Chronicle", "FOX 7 Austin"];
 
@@ -10,6 +10,8 @@ export default function NewsPage() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [smsMessage, setSmsMessage] = useState('');
+
+
 
 
   useEffect(() => {
