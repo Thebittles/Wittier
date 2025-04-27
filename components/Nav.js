@@ -22,6 +22,7 @@ export default function Nav() {
           <Link href="/family-programs">Family</Link>
           <Link href="/mentalhealth">Mental Health</Link>
           <Link href="/senior-disabled-citizen-resources">Senior and Disabled Services</Link>
+          <Link href="/traffic">Traffic</Link>
           <Link href="/weather">Weather</Link>
           <Link href="/search">Search</Link>
         </div>
@@ -36,6 +37,7 @@ export default function Nav() {
           <Link href="/family-programs">Family</Link>
           <Link href="/mentalhealth">Mental Health</Link>
           <Link href="/senior-disabled-citizens-resources">Senior and Disabled Services</Link>
+          <Link href="/traffic">Traffic</Link>
           <Link href="/weather">Weather</Link>
           <Link href="/search">Search</Link>
         </div>

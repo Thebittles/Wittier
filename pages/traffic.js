@@ -47,14 +47,14 @@ export default function NewsPage() {
 
   return (
     <Layout>
-      <div className="p-6">
+      <div className="p-6 container">
         {/* Page Title */}
         <h1 className="text-2xl font-bold mb-6">
           CapMetro Information & Event Traffic Closures
         </h1>
 
         {/* Tag Filter Buttons */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8 search-form">
           {tags.map((tag) => (
             <button
               key={tag}
@@ -72,11 +72,11 @@ export default function NewsPage() {
         {loading ? (
           <p>Loading articles...</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 news-container">
             {articles.slice(0, 6).map((article, idx) => (
               <div
                 key={idx}
-                className="border p-4 rounded-xl shadow hover:shadow-lg transition"
+                className="card article border p-4 rounded-xl shadow hover:shadow-lg transition"
               >
                 <div className="flex items-center gap-2 mb-2">
                   {article.favicon && (
@@ -113,8 +113,12 @@ export default function NewsPage() {
       </div>
 
       {/* Traffic Map Section */}
-      <div className="p-6">
-        <TrafficMap />
+      <div className="p-6 callout">
+        <div className="inset">
+          <div className="map-container" style={{ height: "600px" }}>
+            <TrafficMap />
+          </div>
+        </div>  
       </div>
     </Layout>
   );
