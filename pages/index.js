@@ -35,8 +35,8 @@ export default function Home() {
           // title="Mental Health Resources"
           description="Free and Low-cost Mental Health Programs"
           // description1="first aid, heimlich, CPR, bullet wound Treatment"
-        link="/mentalhealth"
-        image="MentalHealthResources.jpg"
+          link="/mentalhealth"
+          image="MentalHealthResources.jpg"
         />
         <ResourceCard
           // title="Domestic Violence Help"
