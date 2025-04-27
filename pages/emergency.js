@@ -1,13 +1,20 @@
 'use client';
+import Layout from '../components/Layout';
 
 import { useState, useEffect } from 'react';
 
-const tags = ['All', 'CPR', 'Heimlich', 'First Aid', 'Choking'];
+const tags = ['CPR', 'Heimlich', 'First Aid', 'Choking', 'Treating bullet wounds'];
 
 export default function EmergencyVideosPage() {
-  const [selectedTag, setSelectedTag] = useState('All');
+  const [selectedTag, setSelectedTag] = useState('CPR');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  function extractVideoId(url) {
+    const urlObj = new URL(url);
+    return urlObj.searchParams.get('v');
+  }
+
 
   useEffect(() => {
     async function fetchVideos() {
@@ -28,10 +35,11 @@ export default function EmergencyVideosPage() {
   }, [selectedTag]);
 
   return (
-    <div className="p-6">
+    <Layout>
+    <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Emergency Videos</h1>
       
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 buttons">
         {tags.map(tag => (
           <button
             key={tag}
@@ -46,18 +54,23 @@ export default function EmergencyVideosPage() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 videos-container">
           {videos.map(video => (
             <div key={video.id} className="border rounded p-4">
-              <a href={video.link} target="_blank" rel="noopener noreferrer">
-                <img src={video.thumbnail} alt={video.title} className="w-full h-48 object-cover mb-2" />
-                <h2 className="text-lg font-semibold">{video.title}</h2>
-                <p className="text-sm text-gray-600">{video.description}</p>
-              </a>
+              <iframe
+                src={`https://www.youtube.com/embed/${extractVideoId(video.link)}`}
+                title={video.title}
+                className="w-full h-64 rounded"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy" 
+              ></iframe>
             </div>
           ))}
         </div>
       )}
     </div>
+    </Layout>
   );
 }
