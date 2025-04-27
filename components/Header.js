@@ -8,6 +8,7 @@ export default function Header() {
         <Head>
             <title>City of Austin Community Resource Dashboard</title>
             <meta name="description" content="Find resources in Austin, TX" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/images/favicon.ico" />
         </Head>
 
