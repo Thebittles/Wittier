@@ -1,7 +1,10 @@
 
 "use client";
 import Layout from '../components/Layout';
+import SendTextForm from '../components/SendTextForm'
 import { useState, useEffect } from "react";
+
+
 
 const tags = [
   "Mental Health","Self-Care","Therapy","Mindfulness","Anxiety Support",
@@ -13,6 +16,7 @@ export default function NewsPage() {
   const [selectedTag, setSelectedTag] = useState("Mental Health");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [smsMessage, setSmsMessage] = useState('');
 
   useEffect(() => {
     async function fetchGoogleSearchLightResults() {
@@ -22,6 +26,12 @@ export default function NewsPage() {
         const res = await fetch(`/api/googleLightSearch${tagQuery}`);
         const data = await res.json();
         setArticles(data.articles);
+    
+        const smsText = data.articles.map(article => (
+          `• ${article.title}: ${article.link}`
+        )).join('\n');
+    
+        setSmsMessage(`🧠 Mental Health Resources - ${selectedTag}:\n${smsText}`);
       } catch (error) {
         console.error("Failed to fetch news:", error);
       } finally {
@@ -36,6 +46,7 @@ export default function NewsPage() {
     <Layout>
     <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Mental Health</h1>
+      <SendTextForm messageToSend={smsMessage} />
 
       <div className="flex gap-2 mb-6 search-form">
         {tags.map((tag) => (
