@@ -44,7 +44,7 @@ export default function DomesticViolenceResourcesPage() {
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Domestic Violence Resources</h1>
         <SendTextForm messageToSend={sheltersInfo} />
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 search-form">
         {tags.map(tag => (
           <button
             key={tag}

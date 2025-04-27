@@ -17,6 +17,7 @@ export default function Nav() {
         <div className="desktop-links">
           <Link href="/">Home</Link>
           <Link href="/emergency">Emergency</Link>
+          <Link href="/domestic-violence">Domestic Violence</Link>
           <Link href="/search">Search</Link>
         </div>
       </nav>
@@ -25,6 +26,7 @@ export default function Nav() {
         <div className="mobile-links">
           <Link href="/">Home</Link>
           <Link href="/emergency">Emergency</Link>
+          <Link href="/domestic-violence">Domestic Violence</Link>
           <Link href="/search">Search</Link>
         </div>
       )}
