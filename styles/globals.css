@@ -22,7 +22,14 @@ body {
 a {
   color: #d74e3d;
   text-decoration: none;
+  transition: color 1s;
 }
+
+a:hover {
+  color: #0059c1;
+}
+
+
 
 
 
@@ -75,11 +82,22 @@ nav.navbar {
   height: 80px;
   background-color: #f5f4f3;
   box-shadow: 1px 1px 10px #00000050;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-two img {
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
 }
+
+.atx-link {
+  color: #1e1e1e;
+  padding-right: 25px;
+  font-size: 1.2rem;
+}
+
 
 /* FOOTER */
 footer {
