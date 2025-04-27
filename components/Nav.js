@@ -18,11 +18,12 @@ export default function Nav() {
           <Link href="/">Home</Link>
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
-          <Link href="/domestic-violence">Safety and Support Services</Link>
+          <Link href="/domestic-violence">Safety & Support Services</Link>
           <Link href="/family-programs">Family</Link>
           <Link href="/mentalhealth">Mental Health</Link>
-          <Link href="/senior-disabled-citizen-resources">Senior and Disabled Services</Link>
+          <Link href="/senior-disabled-citizen-resources">Senior & Disabled Services</Link>
           <Link href="/weather">Weather</Link>
+          <Link href="/traffic">Traffic</Link>
           <Link href="/search">Search</Link>
         </div>
       </nav>
@@ -32,11 +33,12 @@ export default function Nav() {
           <Link href="/">Home</Link>
           <Link href="/news">News</Link>
           <Link href="/emergency">Emergency</Link>
-          <Link href="/domestic-violence">Safety and Support Services</Link>
+          <Link href="/domestic-violence">Safety & Support Services</Link>
           <Link href="/family-programs">Family</Link>
           <Link href="/mentalhealth">Mental Health</Link>
-          <Link href="/senior-disabled-citizens-resources">Senior and Disabled Services</Link>
+          <Link href="/senior-disabled-citizens-resources">Senior & Disabled Services</Link>
           <Link href="/weather">Weather</Link>
+          <Link href="/traffic">Traffic</Link>
           <Link href="/search">Search</Link>
         </div>
       )}
