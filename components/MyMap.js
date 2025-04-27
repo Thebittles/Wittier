@@ -22,7 +22,7 @@ export default function MyMap() {
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
   });
-
+ 
   const firestationIcon = new L.Icon({
     iconUrl: '/icons/red.png', 
     iconSize: [25, 41],

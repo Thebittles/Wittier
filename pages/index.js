@@ -1,13 +1,12 @@
-
-import Layout from '../components/Layout';
-import dynamic from 'next/dynamic';
-import { useState, useEffect, useMemo } from 'react';
-import ResourceCard from '../components/ResourceCard';
+import Layout from "../components/Layout";
+import dynamic from "next/dynamic";
+import { useState, useEffect, useMemo } from "react";
+import ResourceCard from "../components/ResourceCard";
 
 export default function Home() {
   // Search Section
-  const [prompt, setPrompt] = useState('');
-  const [output, setOutput] = useState('');
+  const [prompt, setPrompt] = useState("");
+  const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
 
@@ -17,16 +16,13 @@ export default function Home() {
   }), []);
 
 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
-
   return (
     <Layout>
-    <div className='container'>
+      <div className="container">
         <div className="min-h-screen flex flex-col items-center justify-center p-8">
-          <h1 className="text-4xl font-bold mb-8">Search Austin Community Resources</h1>
+          <h1 className="text-4xl font-bold mb-8">
+            Search Austin Community Resources
+          </h1>
           <div className="mt-8">
             {loading ? <p>Thinking...</p> : <p>{output}</p>}
           </div>
@@ -36,8 +32,8 @@ export default function Home() {
             // title="Mental Health Resources"
             description="Free and Low-cost Mental Health Programs"
             // description1="first aid, heimlich, CPR, bullet wound Treatment"
-            link="https://example.com/rent"
-            image="MentalHealthResources.jpg"
+            link="/mentalhealth"
+            image="MentalHealth.jpg"
           />
           <ResourceCard
             // title="Domestic Violence Help"
@@ -60,27 +56,27 @@ export default function Home() {
           <ResourceCard
             // title="Weather Conditions/Emergency Resources"
             description="Weather Advisory."
-            link="https://example.com/rent"
+            link="/weather"
             image="WeatherConditions_EmergencyResources.jpg"
           />
           <ResourceCard
             // title="Transportation/Traffic/Road Resources and Bulletin Notifications"
             description="CapMetro Information,Event Traffic Closures."
-            link="https://example.com/childcare"
-            image="/Transportation.jpg"
+            link="/traffic"
+            image="/Trafficresources.jpg"
           />
 
           <ResourceCard
             // title="Parental Assistance/Programs"
             description="Child care, Holiday and Summer Programs."
-            link="https://example.com/insurance"
-            image="ParentalAssistance,Programs.jpg"
+            link="/family-programs"
+            image="ParentalAssistance.jpg"
           />
 
           <ResourceCard
             // title="Senior Citizen and Disabled Citizen Resources"
             description="Elder abuse hotline, Local disablity."
-            link="https://example.com/childcare"
+            link="/senior-disabled-citizen-resources"
             // image="Transportation_Traffic_Roa BulletinNotifications.jpg"
             image="CitizenandDisabledCitizenResources.jpg"
           />
@@ -88,16 +84,14 @@ export default function Home() {
       </div>
       <div className="callout">
         <div className="w-full inset">
-          <h1 className="text-4xl font-bold text-center mb-8">See Resources Near You!</h1>
+          <h1 className="text-4xl font-bold text-center mb-8">
+            See Resources Near You!
+          </h1>
           <div className="w-full map-container" style={{ height: "600px" }}>
             <Map />
           </div>
         </div>
       </div>
-
     </Layout>
   );
 }
-
-
-

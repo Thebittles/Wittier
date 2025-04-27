@@ -1,34 +1,40 @@
-"use client";
-import Layout from '../components/Layout';
-import SendTextForm from '../components/SendTextForm';
-import { useState, useEffect, useMemo } from "react";
+'use client';
 
-const tags = ["KXAN Austin", "KEYE", "The Austin Chronicle", "FOX 7 Austin"];
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import Layout from "../components/Layout";
+
+// Dynamically load TrafficMap (with SSR disabled)
+const TrafficMap = dynamic(() => import("../components/TrafficMap"), {
+  loading: () => <p>Loading map...</p>,
+  ssr: false,
+});
+
+// Tags for CapMetro topics
+const tags = [
+  "CapMetro",
+  "Public Transportation",
+  "Bus Routes",
+  "Park and Ride",
+  "Transit Safety",
+  "Traffic Updates",
+  "Street Closures",
+  "Detours",
+];
 
 export default function NewsPage() {
-  const [selectedTag, setSelectedTag] = useState("KXAN Austin");
+  const [selectedTag, setSelectedTag] = useState("CapMetro");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [smsMessage, setSmsMessage] = useState('');
-
-
-
 
   useEffect(() => {
-    async function fetchLiveNews() {
+    async function fetchGoogleSearchLightResults() {
       setLoading(true);
       try {
         const tagQuery = selectedTag !== "All" ? `?tag=${selectedTag}` : "";
-        const res = await fetch(`/api/liveNews${tagQuery}`);
+        const res = await fetch(`/api/googleLightSearch${tagQuery}`);
         const data = await res.json();
         setArticles(data.articles);
-    
-        // ✨ Build SMS text from articles
-        const smsText = data.articles.map(article => (
-          `• ${article.title}: ${article.link}`
-        )).join('\n');
-    
-        setSmsMessage(`📰 Top News - ${selectedTag}:\n${smsText}`);
       } catch (error) {
         console.error("Failed to fetch news:", error);
       } finally {
@@ -36,15 +42,19 @@ export default function NewsPage() {
       }
     }
 
-    fetchLiveNews();
+    fetchGoogleSearchLightResults();
   }, [selectedTag]);
 
   return (
     <Layout>
-      <div className="p-6 container">
-        <h1 className="text-2xl font-bold mb-4">Live News</h1>
-        <SendTextForm messageToSend={smsMessage} />
-        <div className="flex gap-2 mb-6 search-form">
+      <div className="p-6">
+        {/* Page Title */}
+        <h1 className="text-2xl font-bold mb-6">
+          CapMetro Information & Event Traffic Closures
+        </h1>
+
+        {/* Tag Filter Buttons */}
+        <div className="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
             <button
               key={tag}
@@ -58,21 +68,22 @@ export default function NewsPage() {
           ))}
         </div>
 
+        {/* News Articles */}
         {loading ? (
-          <p>Loading...</p>
+          <p>Loading articles...</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 news-container">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {articles.slice(0, 6).map((article, idx) => (
               <div
                 key={idx}
-                className="border p-4 rounded-xl shadow hover:shadow-lg transition card article"
+                className="border p-4 rounded-xl shadow hover:shadow-lg transition"
               >
-                <div className="flex items-center gap-2 mb-2 ">
+                <div className="flex items-center gap-2 mb-2">
                   {article.favicon && (
                     <img
                       src={article.favicon}
                       alt="favicon"
-                      className="w-6 h-6 object-contain favicon"
+                      className="w-6 h-6 object-contain"
                     />
                   )}
                   <a
@@ -85,7 +96,6 @@ export default function NewsPage() {
                   </a>
                 </div>
 
-                {/* Display thumbnail if available */}
                 {article.thumbnail && (
                   <img
                     src={article.thumbnail}
@@ -100,6 +110,11 @@ export default function NewsPage() {
             ))}
           </div>
         )}
+      </div>
+
+      {/* Traffic Map Section */}
+      <div className="p-6">
+        <TrafficMap />
       </div>
     </Layout>
   );

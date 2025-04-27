@@ -10,7 +10,7 @@ const tags = [
 ];
 
 export default function NewsPage() {
-  const [selectedTag, setSelectedTag] = useState("Weather");
+  const [selectedTag, setSelectedTag] = useState("Mental Health");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
