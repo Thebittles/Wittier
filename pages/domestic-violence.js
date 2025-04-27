@@ -50,7 +50,7 @@ export default function DomesticViolenceResourcesPage() {
 
   return (
     <Layout>
-    <div className="p-6">
+    <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Domestic Violence Resources</h1>
       <SendTextForm messageToSend={smsMessage} />
       <div className="flex gap-2 mb-6 search-form">
