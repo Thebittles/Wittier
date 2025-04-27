@@ -1,6 +1,7 @@
 "use client";
 import Layout from '../components/Layout';
 import { useState, useEffect } from "react";
+import SendTextForm from '../components/SendTextForm';
 
 const tags = ["Weather"];
 
@@ -8,6 +9,7 @@ export default function NewsPage() {
   const [selectedTag, setSelectedTag] = useState("Weather");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [smsMessage, setSmsMessage] = useState('');
 
   useEffect(() => {
     async function fetchGoogleSearchLightResults() {
@@ -17,6 +19,13 @@ export default function NewsPage() {
         const res = await fetch(`/api/googleLightSearch${tagQuery}`);
         const data = await res.json();
         setArticles(data.articles);
+    
+        // ✨ Build SMS text from articles
+        const smsText = data.articles.map(article => (
+          `• ${article.title}: ${article.link}`
+        )).join('\n');
+    
+        setSmsMessage(`🌦️ Weather Updates:\n${smsText}`);
       } catch (error) {
         console.error("Failed to fetch news:", error);
       } finally {
@@ -31,7 +40,6 @@ export default function NewsPage() {
     <Layout>
     <div className="p-6 container">
       <h1 className="text-2xl font-bold mb-4">Weather</h1>
-
       <div className="flex gap-2 mb-6 search-form">
         {tags.map((tag) => (
           <button

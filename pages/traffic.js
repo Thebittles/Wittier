@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
+import SendTextForm from "../components/SendTextForm";
 
 // Dynamically load TrafficMap (with SSR disabled)
 const TrafficMap = dynamic(() => import("../components/TrafficMap"), {
@@ -26,6 +27,8 @@ export default function NewsPage() {
   const [selectedTag, setSelectedTag] = useState("CapMetro");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [smsMessage, setSmsMessage] = useState('');
+
 
   useEffect(() => {
     async function fetchGoogleSearchLightResults() {
@@ -35,6 +38,13 @@ export default function NewsPage() {
         const res = await fetch(`/api/googleLightSearch${tagQuery}`);
         const data = await res.json();
         setArticles(data.articles);
+    
+        // ✨ Build SMS text from articles
+        const smsText = data.articles.map(article => (
+          `• ${article.title}: ${article.link}`
+        )).join('\n');
+    
+        setSmsMessage(`🚌 CapMetro & Traffic Updates - ${selectedTag}:\n${smsText}`);
       } catch (error) {
         console.error("Failed to fetch news:", error);
       } finally {
@@ -53,6 +63,7 @@ export default function NewsPage() {
         Traffic: 
           CapMetro Information & Closures
         </h1>
+        <SendTextForm messageToSend={smsMessage} />
 
         {/* Tag Filter Buttons */}
         <div className="flex flex-wrap gap-2 mb-8 search-form">
